@@ -1,17 +1,15 @@
 package org.isep.cleancode;
 
 import static spark.Spark.*;
-import com.google.gson.Gson;
 
 public class Main {
-    private static final TodoController todoController = new TodoController();
-
     public static void main(String[] args) {
         port(4567);
+        TodoController controller = new TodoController();
 
-        get("/todos", todoController::getAllTodos);
-
-        post("/todos", todoController::createTodo);
+        // routes
+        get("/todos", controller::getAllTodos);
+        post("/todos", controller::createTodo);
+        get("/todos/:id", controller::getTodoById);
     }
 }
-
