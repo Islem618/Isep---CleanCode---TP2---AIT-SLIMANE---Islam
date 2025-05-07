@@ -7,9 +7,9 @@ public class Main {
         port(4567);
         TodoController controller = new TodoController();
 
-        // routes
-        get("/todos", controller::getAllTodos);
-        post("/todos", controller::createTodo);
-        get("/todos/:id", controller::getTodoById);
+        get   ("/todos",       controller::getAllTodos);
+        post  ("/todos",       controller::createTodo);
+        get   ("/todos/:id",   controller::getTodoById);
+        put   ("/todos/:id",   controller::updateTodo);
     }
 }

@@ -1,20 +1,13 @@
 package org.isep.cleancode;
 
 public class Todo {
-    // IDs démarrent à 1
     private static int nextId = 1;
-
     private final int id;
     private String name;
 
-    // nécessaire pour Gson
+    // Constructeur sans arguments pour Gson
     public Todo() {
         this.id = nextId++;
-    }
-
-    public Todo(String name) {
-        this.id = nextId++;
-        this.name = name;
     }
 
     public int getId() {
@@ -25,7 +18,7 @@ public class Todo {
         return name;
     }
 
-    // setter nécessaire pour Gson
+    // Gson appelle ce setter quand il parse le JSON
     public void setName(String name) {
         this.name = name;
     }
